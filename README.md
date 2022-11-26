@@ -7,7 +7,7 @@ Ferramenta com CLI interativa para processo de instalação 4ZAP
 2º - Realizar instalação do git e clonagem do 4ZAP.
 
 ```bash
-sudo apt -y update && apt -y upgrade
+sudo apt -y update && sudo apt -y upgrade
 sudo apt install -y git
 git clone https://github.com/italorhan/4zap-installer.git
 ```
