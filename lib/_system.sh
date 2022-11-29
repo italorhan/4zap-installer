@@ -28,7 +28,7 @@ system_git_clone() {
   sleep 2
 
   sudo su - deploy <<EOF
-  git clone https://github.com/canove/whatiket /home/deploy/4zap/
+  git clone https://github.com/pedroherpeto/whaticket-zdg /home/deploy/4zap/
 EOF
 
   sleep 2
