@@ -35,7 +35,7 @@ system_git_clone() {
   sleep 2
 
   sudo su - deploy <<EOF
-  git clone https://github.com/italorhan/whaticket /home/deploy/4zap/
+  git clone https://github.com/italorhan/4zap-server /home/deploy/4zap/
 EOF
 
   sleep 2
