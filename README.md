@@ -14,7 +14,7 @@ sudo usermod -aG sudo deploy
 ```bash
 sudo apt -y update && sudo apt -y upgrade
 sudo apt install -y git
-git clone https://github.com/italorhan/4zap-installer.git
+sudo git clone https://github.com/italorhan/4zap-installer.git
 ```
 
 3º - Realizar permissão ao arquivo 4zap para ser executável.
