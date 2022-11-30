@@ -16,7 +16,7 @@ backend_mysql_create() {
 
   sudo su - root <<EOF
   usermod -aG docker deploy
-  docker run --name whaticketdb \
+  docker run --name 4zapdb \
                 -e MYSQL_ROOT_PASSWORD=${mysql_root_password} \
                 -e MYSQL_DATABASE=${db_name} \
                 -e MYSQL_USER=${db_user} \
@@ -54,7 +54,7 @@ backend_set_env() {
   frontend_url=https://$frontend_url
 
 sudo su - deploy << EOF
-  cat <<[-]EOF > /home/deploy/whaticket/backend/.env
+  cat <<[-]EOF > /home/deploy/4zap/backend/.env
 NODE_ENV=
 BACKEND_URL=${backend_url}
 FRONTEND_URL=${frontend_url}
@@ -88,7 +88,7 @@ backend_node_dependencies() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket/backend
+  cd /home/deploy/4zap/backend
   npm install
 EOF
 
@@ -108,7 +108,7 @@ backend_node_build() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket/backend
+  cd /home/deploy/4zap/backend
   npm install
   npm run build
 EOF
@@ -129,9 +129,9 @@ backend_update() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket
+  cd /home/deploy/4zap
   git pull
-  cd /home/deploy/whaticket/backend
+  cd /home/deploy/4zap/backend
   npm install
   rm -rf dist 
   npm run build
@@ -156,7 +156,7 @@ backend_db_migrate() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket/backend
+  cd /home/deploy/4zap/backend
   npx sequelize db:migrate
 EOF
 
@@ -176,7 +176,7 @@ backend_db_seed() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket/backend
+  cd /home/deploy/4zap/backend
   npx sequelize db:seed:all
 EOF
 
@@ -197,8 +197,8 @@ backend_start_pm2() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket/backend
-  pm2 start dist/server.js --name whaticket-backend
+  cd /home/deploy/4zap/backend
+  pm2 start dist/server.js --name 4zap-backend
 EOF
 
   sleep 2
@@ -220,7 +220,7 @@ backend_nginx_setup() {
 
 sudo su - root << EOF
 
-cat > /etc/nginx/sites-available/whaticket-backend << 'END'
+cat > /etc/nginx/sites-available/4zap-backend << 'END'
 server {
   server_name $backend_hostname;
 
@@ -238,7 +238,7 @@ server {
 }
 END
 
-ln -s /etc/nginx/sites-available/whaticket-backend /etc/nginx/sites-enabled
+ln -s /etc/nginx/sites-available/4zap-backend /etc/nginx/sites-enabled
 EOF
 
   sleep 2
