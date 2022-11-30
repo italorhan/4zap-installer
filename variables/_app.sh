@@ -16,4 +16,4 @@ db_pass=$(openssl rand -base64 32)
 db_user=4zap
 db_name=4zap
 
-deploy_email=admin@4zap.com.br
+deploy_email=admin@4infra.com.br
