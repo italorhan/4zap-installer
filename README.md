@@ -36,4 +36,4 @@ sudo ./4zap
 ```
 ### Instalação
 
-5º - Para logar no sistema após a instalação o usuário padrão é **"admin@4zap.com.br"** e senha **"admin"**
+5º - Para logar no sistema após a instalação o usuário padrão é **"admin@whaticket.com"** e senha **"admin"**
