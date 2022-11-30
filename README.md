@@ -2,7 +2,12 @@ Ferramenta com CLI interativa para processo de instalação 4ZAP
 
 ### Download e Instalação
 
-1º - Iniciar o processo de Update e Upgrade do Servidor Ubuntu 20.04.
+1º - Criar usuário deploy como sudo.
+
+```bash
+adduser deploy
+sudo usermod -aG sudo deploy
+```
 
 2º - Realizar instalação do git e clonagem do 4ZAP.
 
