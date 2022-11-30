@@ -15,7 +15,7 @@ frontend_node_dependencies() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket/frontend
+  cd /home/deploy/4zap/frontend
   npm install
 EOF
 
@@ -35,7 +35,7 @@ frontend_node_build() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket/frontend
+  cd /home/deploy/4zap/frontend
   npm install
   npm run build
 EOF
@@ -56,9 +56,9 @@ frontend_update() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/whaticket
+  cd /home/deploy/4zap
   git pull
-  cd /home/deploy/whaticket/frontend
+  cd /home/deploy/4zap/frontend
   npm install
   rm -rf build
   npm run build
