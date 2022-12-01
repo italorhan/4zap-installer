@@ -17,10 +17,10 @@ backend_mysql_create() {
   sudo su - root <<EOF
   usermod -aG docker deploy
   docker run --name 4chatdb \
-                -e MYSQL_ROOT_PASSWORD=6Q7caaQi3x \
-                -e MYSQL_DATABASE=4chatdb \
-                -e MYSQL_USER=4chat \
-                -e MYSQL_PASSWORD=6Q7caaQi3x \
+                -e MYSQL_ROOT_PASSWORD=${mysql_root_password} \
+                -e MYSQL_DATABASE=${db_name} \
+                -e MYSQL_USER=${db_user} \
+                -e MYSQL_PASSWORD=${db_pass} \
              --restart always \
                 -p 3306:3306 \
                 -d mariadb:latest \
